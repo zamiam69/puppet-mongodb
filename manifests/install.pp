@@ -44,4 +44,31 @@ class mongodb::install (
         before  => Anchor['mongodb::install::end']
     }
 
+    package { 'mongodb-org-shell':
+        ensure => $package_ensure,
+        name => "mongodb-org-shell",
+        require => Package["mongodb-10gen"] ,
+        before => Anchor['mongodb::install::end']
+    }
+
+    package { 'mongodb-org-server':
+        ensure => $package_ensure,
+        name => "mongodb-org-server",
+        require => Package["mongodb-10gen"] ,
+        before => Anchor['mongodb::install::end']
+    }
+
+    package { 'mongodb-org-tools':
+        ensure => $package_ensure,
+        name => "mongodb-org-tools",
+        require => Package["mongodb-10gen"] ,
+        before => Anchor['mongodb::install::end']
+    }
+
+    package { 'mongodb-org-mongos':
+        ensure => $package_ensure,
+        name => "mongodb-org-mongos",
+        require => Package["mongodb-10gen"] ,
+        before => Anchor['mongodb::install::end']
+    }
 }
